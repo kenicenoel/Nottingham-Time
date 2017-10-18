@@ -1,4 +1,4 @@
-﻿<Window x:Class="Big_Ben.MainWindow"
+﻿<Window x:Class="Nottingham_Time.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,34 +7,37 @@
         Icon="Resources/icons8_Watch.ico"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="#80FFFFFF"
+        Background="#1A00acc1"
         ResizeMode="CanMinimize"
         WindowStartupLocation="Manual"
         MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"       
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Nottingham Time" Height="200" Width="417.011">
+    
 
 
-    <StackPanel Name ="MainContainer"  Orientation="Vertical">
-        <StackPanel Background="Transparent"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 5 0">
-            <Button Name="CloseButton" Click="CloseButton_OnClick" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                    Margin="0 5 0 0" >
-                <Image Name="CloseIcon" Source="Resources/Delete_24px.png" Height="18"></Image>
+
+    <StackPanel Name ="MainContainer" Orientation="Vertical" >
+        <DockPanel  Background="Transparent" >
+            <Label Name="Header" Content="Nottingham Time" FontSize="15" Foreground="#ffffff" Margin="5 2 0 0" />
+            <Button Background="Transparent" HorizontalAlignment="Right" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" DockPanel.Dock="Right" Click="ButtonBase_OnClick" >
+                <Image Source="Resources/Delete_24px.png" Height="20" />
             </Button>
-           </StackPanel>
-        <Grid Name="ContentGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="262*"></ColumnDefinition>
-                <ColumnDefinition Width="223*"></ColumnDefinition>
-                <ColumnDefinition Width="40*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition ></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Label Name="Header" Content="Nottingham Time" FontSize="18" FontFamily="LLewie" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" Margin="0 20 0 05" />
-            <Label Name="LondonTimeDisplay"  Content="00:00:00" FontSize="50" FontFamily="LLewie" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+        </DockPanel>
+                 
+        <Grid Name="ContentGrid" Margin="0 15 0 0" HorizontalAlignment="Center">
+         <Label Name="LondonTimeDisplay"  Content="00:00:00" FontSize="50" 
+                Grid.Column="0" Foreground="#ffffff" Grid.Row="1"
+                HorizontalContentAlignment="Center" Grid.ColumnSpan="3"
+                HorizontalAlignment="Center"
+                />
         </Grid>
-        <Label Name="GrenadaTimeDisplay" Content="Grenada: 00:00:00" FontFamily="LLewie" Margin="5 5 0 0"></Label>
     </StackPanel>
+    
 </Window>

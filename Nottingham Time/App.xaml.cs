@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Big_Ben
+namespace Nottingham_Time
 {
     /// <summary>
     /// Interaction logic for App.xaml

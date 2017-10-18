@@ -17,7 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
-namespace Big_Ben
+namespace Nottingham_Time
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -32,7 +32,7 @@ namespace Big_Ben
         public static extern int SendMessage(IntPtr hWnd, int msg,
             int wParam, int lParam);
 
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         public MainWindow()
         {
@@ -58,7 +58,7 @@ namespace Big_Ben
             britishTime = TimeZoneInfo.ConvertTime(britishTime, londonTimeZone);
             grenadaTime = TimeZoneInfo.ConvertTime(grenadaTime, grenadaTimeZone);
             LondonTimeDisplay.Content = britishTime.ToString("HH:mm:ss");
-            GrenadaTimeDisplay.Content = $"Grenada: {grenadaTime:HH:mm:ss}";
+           
         }
 
      
@@ -73,6 +73,10 @@ namespace Big_Ben
             this.DragMove();
         }
 
-  
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
